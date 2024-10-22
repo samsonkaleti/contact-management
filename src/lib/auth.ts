@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client"; 
+import { sendVerificationEmail, sendPasswordResetEmail } from "./email";
 
 const prisma = new PrismaClient();
 
@@ -28,4 +29,5 @@ export async function verifyToken(token: string): Promise<number | null> {
   } catch (error) {
     return null;
   }
-}
+} 
+export { sendVerificationEmail, sendPasswordResetEmail };
